@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { handleHome } from "../Router/cordinator";
 import styled from "styled-components";
 
-export default function Cadastro (props){
+export default function Cadastro ({frutas, setFrutas }){
   const[formulario, setFormulario]=useState({name:"", url:"", price:""})
   const navigate = useNavigate();
 
@@ -13,7 +13,8 @@ export default function Cadastro (props){
   }
   const handleClick = (event)=>{
     event.preventDefault()
-    console.log(formulario);
+    const aux = [...frutas, {id: Date.now(), ...formulario}]
+    setFrutas(aux)
   }
  
  
